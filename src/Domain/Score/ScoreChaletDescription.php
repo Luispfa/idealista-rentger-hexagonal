@@ -11,11 +11,10 @@ final class ScoreChaletDescription extends ScoreAbstract
 
     public function __invoke(): int
     {
-        if ($this->ad->getTypology() != 'CHALET') {
+        if ($this->ad->getTypology() != self::TYPOLOGY_CHALET) {
             return 0;
         }
 
-        $max = 50;
         $num = str_word_count($this->ad->getDescription(), 0);
 
         return $num > self::MAX_NUM_WORDS ? self::DEFAULT_SCORE : 0;

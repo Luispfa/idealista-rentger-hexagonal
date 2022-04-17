@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Application;
 
-use App\Domain\Ad;
 use App\Domain\AdResponse;
 use App\Domain\AdsResponse;
 use App\Domain\ScoreAd;

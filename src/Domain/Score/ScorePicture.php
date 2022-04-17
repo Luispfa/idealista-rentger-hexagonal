@@ -9,10 +9,16 @@ use function Lambdish\Phunctional\search as PhunctionalSearch;
 
 final class ScorePicture extends ScoreAbstract
 {
+    const SD = 'SD';
+    const HD = 'HD';
+    const DEFAULT_SCORE_MIN = -10;
+    const DEFAULT_SCORE_SD = 10;
+    const DEFAULT_SCORE_HD = 20;
+
     public function __invoke(array $pictures): int
     {
         if (!count($this->ad->getPictures())) {
-            return -10;
+            return self::DEFAULT_SCORE_MIN;
         }
 
         $score = 0;
@@ -21,10 +27,10 @@ final class ScorePicture extends ScoreAbstract
                 return $pictureId == $picture->getId();
             }, $pictures);
 
-            if ($pic->getQuality() == 'SD') {
-                $score = $score + 10;
-            } else if ($pic->getQuality() == 'HD') {
-                $score = $score + 20;
+            if ($pic->getQuality() == self::SD) {
+                $score = $score + self::DEFAULT_SCORE_SD;
+            } else if ($pic->getQuality() == self::HD) {
+                $score = $score + self::DEFAULT_SCORE_HD;
             }
         }
 

@@ -14,7 +14,7 @@ final class ScoreFlatDescription extends ScoreAbstract
     public function __invoke(): int
     {
         $score = 0;
-        if ($this->ad->getTypology() != 'FLAT') {
+        if ($this->ad->getTypology() != self::TYPOLOGY_FLAT) {
             return $score;
         }
 

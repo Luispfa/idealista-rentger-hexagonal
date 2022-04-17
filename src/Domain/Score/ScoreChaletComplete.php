@@ -10,7 +10,7 @@ class ScoreChaletComplete extends ScoreCompleteAbstract
 
     public function __invoke(): int
     {
-        if ($this->ad->getTypology() != 'CHALET') {
+        if ($this->ad->getTypology() != self::TYPOLOGY_CHALET) {
             return 0;
         }
 
